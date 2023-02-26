@@ -9,9 +9,18 @@ class HashMap {
     for (let i = 0; i < key.length; i++) {
       hashCode += hashCode + key.charCodeAt(i);
     }
-    return hashCode;
+    return hashCode % this.hashmap.length;
   }
 
+  assign(key, value) {
+    const arrayIndex = this.hash(key);
+    this.hashmap[arrayIndex] = value;
+  }
 }
 
 module.exports = HashMap;
+
+const employees = new HashMap(3);
+employees.assign('34-567', 'Mara');
+
+console.log(employees.hashmap);
