@@ -16,11 +16,16 @@ class HashMap {
     const arrayIndex = this.hash(key);
     this.hashmap[arrayIndex] = value;
   }
+
+  retrieve(key) {
+    const arrayIndex = this.hash(key);
+    return this.hashmap[arrayIndex];
+  }
+  
 }
 
 module.exports = HashMap;
 
-const employees = new HashMap(3);
-employees.assign('34-567', 'Mara');
-
-console.log(employees.hashmap);
+const glossary = new HashMap(3);
+glossary.assign('semordnilap', 'Words that form different words when reversed');
+console.log(glossary.retrieve('semordnilap'));
